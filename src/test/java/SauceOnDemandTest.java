@@ -58,7 +58,7 @@ public class SauceOnDemandTest implements SauceOnDemandSessionIdProvider {
         String[] envVars = {"SAUCE_USERNAME", "SUPER_HAPPY_FUN_VAR", "BUILD_NUMBER", "BUILD_ID"};
 
         for (String v : envVars) {
-            String output = System.getenv(v) || "";
+            String output = System.getenv(v);
             System.out.println(v + " : " );
         }
 
