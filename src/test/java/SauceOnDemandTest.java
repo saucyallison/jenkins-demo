@@ -53,6 +53,15 @@ public class SauceOnDemandTest implements SauceOnDemandSessionIdProvider {
         capabilities.setCapability("browserName", Utils.readPropertyOrEnv("SELENIUM_BROWSER", "firefox"));
         String username = Utils.readPropertyOrEnv("SAUCE_USER_NAME", "");
         String accessKey = Utils.readPropertyOrEnv("SAUCE_API_KEY", "");
+
+        // print out some environment variables, for funs
+        String[] envVars = {"SAUCE_USERNAME", "SUPER_HAPPY_FUN_VAR", "BUILD_NUMBER", "BUILD_ID"};
+
+        for (String v : envVars) {
+            String output = System.getenv(v) || "";
+            System.out.println(v + " : " );
+        }
+
         this.webDriver = new RemoteWebDriver(
                 new URL("http://" + username + ":" + accessKey + "@ondemand.saucelabs.com:80/wd/hub"),
                 capabilities);
