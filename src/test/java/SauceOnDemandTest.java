@@ -59,7 +59,7 @@ public class SauceOnDemandTest implements SauceOnDemandSessionIdProvider {
 
         for (String v : envVars) {
             String output = System.getProperty(v);
-            if (!v) continue;
+            if (output == null) continue;
             System.out.println(v + " : " );
         }
 
